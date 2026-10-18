@@ -1,10 +1,21 @@
+import {Routes, Route} from 'react-router'
+import Layout from './components/Layout'
+import HomePage from './pages/HomePage'
+import ProductsPage from './pages/ProductsPage'
+import CartPage from './pages/CartPage'
+import NotFoundPage from './pages/NotFoundPage'
 
 
 function App(){
   return(
-    <div className="min-h-screen bg-black text-white flex items-center justify-center">
-    <h1 className = "text-5x1 font-bold tracking-widest"> THRACKS</h1>
-    </div>
+    <Routes>
+      <Route element = {<Layout />}>
+      <Route index element= {<HomePage/>}/>
+      <Route path="products" element = {<ProductsPage/>}/>
+      <Route path = "cart" element = {<CartPage/>} />
+      <Route path ="*" element = {<NotFoundPage />} /> 
+      </Route>
+    </Routes>
   )
 }
 
